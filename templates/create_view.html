@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+		<form method="POST" enctype="multipart/form-data">
+
+		<!-- Security token -->
+		{% csrf_token %}
+
+		<!-- Using the formset -->
+		{{ form.as_p }}
+
+		<input type="submit" value="Submit">
+		</form>
+
+			<form action="{% url 'search_todos' %}" method="get">
+		<input type="text" name="q" placeholder="Search by title">
+		<button type="submit">Search</button>
+		</form>
+
+		<form action="{% url 'filter_todos' %}" method="get">
+			<input type="date" name="start_date">
+			<input type="date" name="end_date">
+			<button type="submit">Filter</button>
+		</form>
+
+</body>
+</html>
